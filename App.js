@@ -1,10 +1,11 @@
+// IMPORTAÇÃO 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Login from "./Login";
-import CreateUser from "./CreateUser";
-import DetailBook from "./DetailBook";
-import FeedBook from "./FeedBook";
+import Login from "./screens/Login";
+import CreateUser from "./screens/CreateUser";
+import DetailBook from "./screens/DetailBook";
+import FeedBook from "./screens/FeedBook";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,8 +15,8 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen 
           name="Login"
-          component={Login}
-          options={{title: "Login"}}
+          component={Login} // TELA DE LOGIN EM SI
+          options={{title: "LOGIN"}}
         />
       </Stack.Navigator>
     </NavigationContainer>
