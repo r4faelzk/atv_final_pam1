@@ -27,6 +27,23 @@ export default function Login() {
         </Text>
       </TouchableOpacity>
 
+      <Text style={styles.loginAlternative}>Ou</Text>
+
+      <View style={styles.containerLoginAlternative}>
+        <TouchableOpacity style={styles.btnLoginAlternative}>
+          <Image source={require("../assets/imagens/google.png")} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btnLoginAlternative}>
+          <Image source={require("../assets/imagens/facebook.png")} />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.containerLoginAlternative}>
+        <TouchableOpacity>
+          <Text style={styles.btnRegister}>Não tem acesso? Crie uma conta</Text>
+        </TouchableOpacity>
+      </View>
+
     </SafeAreaView>
   );
 }
@@ -41,7 +58,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   login: {
-    width: 350
+    width: 175,
+    height: 137
   },
   texto: {
     fontSize: 28,
@@ -71,5 +89,28 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     color: '#FFF'
+  },
+  loginAlternative: {
+    textAlign: 'center',
+    color: '#666',
+    marginBottom: 30
+  },
+  containerLoginAlternative: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 30,
+    gap: 10
+  },
+  btnLoginAlternative: {
+    borderColor: '#DDD',
+    borderWidth: 2,
+    borderRadius: 10,
+    paddingHorizontal: 30,
+    paddingVertical: 10
+  },
+  btnRegister: {
+    color: '#3480EB',
+    fontWeight: '600',
+    fontSize: 14
   }
 });
