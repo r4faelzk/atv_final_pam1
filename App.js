@@ -13,11 +13,16 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return ( // RENDERIZANDO AS TELAS NAVEGÁVEIS
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen 
           name="Login"
           component={Login} // TELA DE LOGIN EM SI
           options={{title: "LOGIN"}}
+        />
+        <Stack.Screen 
+          name="CreateUser"
+          component={CreateUser} // TELA DE CREATEUSER EM SI
+          options={{title: "Cadastro"}}
         />
       </Stack.Navigator>
     </NavigationContainer>
