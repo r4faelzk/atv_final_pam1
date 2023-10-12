@@ -1,7 +1,7 @@
 import { StyleSheet, Text, SafeAreaView, Image, View, TextInput, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
 
@@ -39,7 +39,9 @@ export default function Login() {
       </View>
 
       <View style={styles.containerLoginAlternative}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+          navigation.navigate("CreateUser");
+        }}>
           <Text style={styles.btnRegister}>Não tem acesso? Crie uma conta</Text>
         </TouchableOpacity>
       </View>
