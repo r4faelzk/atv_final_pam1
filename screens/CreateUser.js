@@ -51,11 +51,12 @@ const styles = StyleSheet.create({
   },
   topo: {
     alignItems: 'center',
-    marginBottom: 15
+    marginBottom: 15,
+    marginTop: 15
   },
   login: {
-    width: 162,
-    height: 143
+    width: 324,
+    height: 287
   },
   texto: {
     fontSize: 28,

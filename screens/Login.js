@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   login: {
-    width: 175,
-    height: 137
+    width: 350,
+    height: 274
   },
   texto: {
     fontSize: 28,
