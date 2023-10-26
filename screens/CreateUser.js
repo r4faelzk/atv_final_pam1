@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
     marginTop: 15
   },
   login: {
-    width: 324,
-    height: 287
+    width: 150,
+    height: 200
   },
   texto: {
     fontSize: 28,

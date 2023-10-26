@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return ( // RENDERIZANDO AS TELAS NAVEGÁVEIS
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: true}}>
         <Stack.Screen
           name="Login"
           component={Login} // TELA DE LOGIN EM SI
@@ -28,7 +28,7 @@ export default function App() {
         <Stack.Screen 
           name="DrawerMenu"
           component={DrawerMenu} // TELA DE CREATEUSER EM SI
-          options={{title: "DrawerMenu"}}
+          options={{title: "", headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

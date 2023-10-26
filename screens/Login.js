@@ -22,7 +22,11 @@ export default function Login({navigation}) {
       </View>
 
       <TouchableOpacity style={styles.btnLogin}>
-        <Text style={styles.txtLogin}>
+        <Text style={styles.txtLogin}
+        onPress={()=>{
+          navigation.navigate('DrawerMenu')
+        }}
+        >
           LOGIN
         </Text>
       </TouchableOpacity>
@@ -60,8 +64,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   login: {
-    width: 350,
-    height: 274
+    width: 150,
+    height: 150
   },
   texto: {
     fontSize: 28,
