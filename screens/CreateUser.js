@@ -1,113 +1,117 @@
-import { StyleSheet, Text, SafeAreaView, Image, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image, View, TextInput } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function CreateUser({navigation}) {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.topo}>
-        <Image style={styles.login} source={require("../assets/imagens/registration.png")}/>
-      </View>
+    return (
+        <SafeAreaView style={styles.container}>
 
-      <Text style={styles.texto}>Novo usuário?</Text>
+            <View style={styles.top}>
+                <Image style={styles.imagem} source={require("../assets/imagens/login.png")} />
+            </View>
 
-      <View style={styles.containerTextInput}>
-        <Ionicons name='mail' size={25} color={'#3480EB'} />
-        <TextInput style={styles.textInput} placeholder='E-mail' keyboardType='email-address' />
-      </View>
+            <Text style={styles.texto}>Fazer login</Text>
 
-      <View style={styles.containerTextInput}>
-        <Ionicons name='key' size={25} color={'#3480EB'} />
-        <TextInput style={styles.textInput} placeholder='Senha' secureTextEntry={true} />
-      </View>
+            <View style={styles.containerTextInput}>
+                <Ionicons name="mail" size={25} color={"#171717"} marginLeft={20} />
+                <TextInput style={styles.textInput} placeholder="Insira seu e-mail" placeholderTextColor={"#171717"} keyboardType="email-address" />
+            </View>
 
-      <View style={styles.containerTextInput}>
-        <Ionicons name='key' size={25} color={'#3480EB'} />
-        <TextInput style={styles.textInput} placeholder='Confirmar senha' secureTextEntry={true} />
-      </View>
+            <View style={styles.containerTextInput}>
+                <Ionicons name="key" size={25} color={"#171717"} marginLeft={20} />
+                <TextInput style={styles.textInput} placeholder="Digite sua senha" placeholderTextColor={"#171717"} secureTextEntry={true} />
+            </View>
 
-      <TouchableOpacity style={styles.btnLogin}>
-        <Text style={styles.txtLogin}>
-          CADASTRAR
-        </Text>
-      </TouchableOpacity>
+            <TouchableOpacity style={styles.btnLogin}>
+                <Text style={styles.txtLogin}>
+                    CADASTRAR
+                </Text>
+            </TouchableOpacity>
 
-      <View style={styles.containerLoginBack}>
-        <TouchableOpacity onPress={() => {
-          navigation.navigate("Login");
-        }}>
-          <Text style={styles.btnRegister}>Já tem uma conta? Entre</Text>
-        </TouchableOpacity>
-      </View>
 
-    </SafeAreaView>
-  );
+
+
+            <View style={styles.containerCreateUser}>
+                <TouchableOpacity onPress={()=>{
+                    navigation.navigate("Login");
+                }}>
+                    <Text style={styles.btnRegistrar}>Já possui conta? <Text style={styles.span}>Entrar</Text></Text>
+                </TouchableOpacity>
+            </View>
+            
+        </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFF',
-    padding: 16
-  },
-  topo: {
-    alignItems: 'center',
-    marginBottom: 15,
-    marginTop: 15
-  },
-  login: {
-    width: 150,
-    height: 200
-  },
-  texto: {
-    fontSize: 28,
-    fontWeight: '500',
-    color: '#333',
-    marginBottom: 30,
-  },
-  containerTextInput: {
-    flexDirection: 'row',
-    borderBottomColor: '#CCC',
-    borderBottomWidth: 1,
-    paddingBottom: 8,
-    marginBottom: 15,
-    alignItems: 'center'
-  },
-  textInput: {
-    padding: 10
-  },
-  btnLogin: {
-    backgroundColor: '#3480EB',
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 30
-  },
-  txtLogin: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#FFF'
-  },
-  // loginAlternative: {
-  //   textAlign: 'center',
-  //   color: '#666',
-  //   marginBottom: 30
-  // },
-  containerLoginBack: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 30,
-    gap: 10
-  },
-  btnLoginAlternative: {
-    borderColor: '#DDD',
-    borderWidth: 2,
-    borderRadius: 10,
-    paddingHorizontal: 30,
-    paddingVertical: 10
-  },
-  btnRegister: {
-    color: '#3480EB',
-    fontWeight: '600',
-    fontSize: 14
-  }
+    container: {
+        flex: 1,
+        backgroundColor: "#171717",
+        padding: 16
+    },
+
+    top: {
+        alignItems: "center",
+        marginTop: 70,
+    },
+
+    imagem: {
+        width: 320,
+        height: 220,
+    },
+
+    texto: {
+        fontSize: 30,
+        fontWeight: "900",
+        color: "white",
+        marginTop: 50,
+        marginBottom: 20,
+        textAlign: "center"
+    },
+
+    containerTextInput: {
+        flexDirection: 'row',
+        paddingBottom: 8,
+        marginBottom: 25,
+        alignItems: "center",
+        backgroundColor: "gray",
+        borderWidth: 1,
+        borderRadius: 10
+    },
+
+    textInput: {
+        padding: 10
+    },
+
+    btnLogin: {
+        backgroundColor: "purple",
+        padding: 15,
+        marginTop: 10,
+        marginBottom: 15
+    },
+
+    txtLogin:{
+        textAlign: "center",
+        fontWeight: "600",
+        fontSize: 16,
+        color: "white"
+    },
+
+    containerCreateUser:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        gap: 10
+    },
+
+    btnRegistrar: {
+        color: 'white',
+        fontWeight: '600',
+        fontSize: 14
+    },
+
+    span:{
+        color: "purple",
+        fontWeight: "bold",
+    }
+
+
 });
