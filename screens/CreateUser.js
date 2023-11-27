@@ -1,7 +1,8 @@
+
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image, View, TextInput } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function CreateUser({navigation}) {
+export default function Login({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
 
@@ -9,7 +10,7 @@ export default function CreateUser({navigation}) {
                 <Image style={styles.imagem} source={require("../assets/imagens/login.png")} />
             </View>
 
-            <Text style={styles.texto}>Fazer login</Text>
+            <Text style={styles.texto}>Fazer cadastro</Text>
 
             <View style={styles.containerTextInput}>
                 <Ionicons name="mail" size={25} color={"#171717"} marginLeft={20} />
@@ -22,7 +23,10 @@ export default function CreateUser({navigation}) {
             </View>
 
             <TouchableOpacity style={styles.btnLogin}>
-                <Text style={styles.txtLogin}>
+                <Text style={styles.txtLogin}
+                    onPress={() => {
+                        navigation.navigate('DrawerMenu');
+                    }}>
                     CADASTRAR
                 </Text>
             </TouchableOpacity>
@@ -35,9 +39,9 @@ export default function CreateUser({navigation}) {
                     navigation.navigate("Login");
                 }}>
                     <Text style={styles.btnRegistrar}>Já possui conta? <Text style={styles.span}>Entrar</Text></Text>
+                    
                 </TouchableOpacity>
             </View>
-            
         </SafeAreaView>
     )
 }
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
     },
 
     btnLogin: {
-        backgroundColor: "purple",
+        backgroundColor: "#c82323",
         padding: 15,
         marginTop: 10,
         marginBottom: 15
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
     },
 
     span:{
-        color: "purple",
+        color: "#c82323",
         fontWeight: "bold",
     }
 

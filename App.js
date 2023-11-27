@@ -7,14 +7,14 @@ import Login from "./screens/Login";
 import CreateUser from "./screens/CreateUser";
 import DrawerMenu from "./drawerMenu/DrawerMenu";
 import DetailBook from "./screens/DetailBook";
-import FeedBook from "./screens/FeedBook";
+import FeedBook from "./screens/FeedCars";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return ( // RENDERIZANDO AS TELAS NAVEGÁVEIS
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: true}}>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
         <Stack.Screen
           name="Login"
           component={Login} // TELA DE LOGIN EM SI

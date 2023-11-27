@@ -1,12 +1,12 @@
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image, View, TextInput } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function Login({navigation}) {
+export default function CreateUser({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
 
             <View style={styles.top}>
-                <Image style={styles.imagem} source={require("../assets/imagens/login.png")} />
+                <Image style={styles.imagem} source={require("../assets/imagens/cadastro.png")} />
             </View>
 
             <Text style={styles.texto}>Fazer login</Text>
@@ -22,11 +22,10 @@ export default function Login({navigation}) {
             </View>
 
             <TouchableOpacity style={styles.btnLogin}>
-                <Text style={styles.txtLogin}
-                    onPress={() => {
-                        navigation.navigate('DrawerMenu');
-                    }}>
-                    LOGIN
+                <Text style={styles.txtLogin} onPress={() => {
+                    navigation.navigate('DrawerMenu')
+                }}>
+                    ENTRAR
                 </Text>
             </TouchableOpacity>
 
@@ -34,12 +33,13 @@ export default function Login({navigation}) {
 
 
             <View style={styles.containerCreateUser}>
-                <TouchableOpacity onPress={()=>{
+                <TouchableOpacity onPress={() => {
                     navigation.navigate("CreateUser");
                 }}>
                     <Text style={styles.btnRegistrar}>Ainda não possui conta? <Text style={styles.span}>Cadastre-se</Text></Text>
                 </TouchableOpacity>
             </View>
+
         </SafeAreaView>
     )
 }
@@ -85,20 +85,20 @@ const styles = StyleSheet.create({
     },
 
     btnLogin: {
-        backgroundColor: "purple",
+        backgroundColor: "#c82323",
         padding: 15,
         marginTop: 10,
         marginBottom: 15
     },
 
-    txtLogin:{
+    txtLogin: {
         textAlign: "center",
         fontWeight: "600",
         fontSize: 16,
         color: "white"
     },
 
-    containerCreateUser:{
+    containerCreateUser: {
         flexDirection: 'row',
         justifyContent: 'center',
         gap: 10
@@ -110,10 +110,13 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
 
-    span:{
-        color: "purple",
+    span: {
+        color: "#c82323",
         fontWeight: "bold",
     }
 
 
 });
+
+
+
