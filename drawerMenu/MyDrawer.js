@@ -23,7 +23,8 @@ export default function MyDrawer() {
                 options={
                     {
                         title: "Página inicial",
-                        headerTitleStyle: {color: "transparent"}
+                        headerTitleStyle: {color: "transparent"},
+                        headerShown: false
                     }
                 }
             />
@@ -34,7 +35,8 @@ export default function MyDrawer() {
                 options={
                     {
                         title: "Carros à venda",
-                        headerTitleStyle: { color: 'transparent' }
+                        headerTitleStyle: { color: 'transparent' },
+                        headerShown: false
                        
                     }
                 }

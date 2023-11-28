@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View, Text, Image, ScrollView, TextInput, Dimensions, Pressable, FlatList } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import houses from "../consts/houses";
+import Cars from "../consts/Cars";
 const { width } = Dimensions.get("screen");
 
 
@@ -15,9 +15,10 @@ export default function Home({ navigation }) {
         { title: "Alugar um carro", img: require("../assets/imagens/carro2.jpg") },
     ];
 
-    const categoryList = ['Populares', 'Esportivos', 'Clássicos'];
+    
 
     const ListCategories = () => {
+        const categoryList = ['Populares', 'Esportivos', 'Clássicos'];
         const [selectedCategoryIndex, setSelectedCategoryIndex] = React.useState(0);
         return (
             <View style={styles.categoryListContainer}>
@@ -25,8 +26,7 @@ export default function Home({ navigation }) {
                     <Pressable
                         key={index}
                         onPress={() => setSelectedCategoryIndex(index)}>
-                        <Text
-                            style={[
+                        <Text style={[
                                 styles.categoryListText,
                                 index == selectedCategoryIndex && styles.activeCategoryListText,
                             ]}>
@@ -60,43 +60,42 @@ export default function Home({ navigation }) {
                 onPress={() => navigation.navigate('DetailBook', car)}>
                 <View style={styles.card}>
                     {/* House image */}
-                    <Image source={require = ("../assets/imagens/carro2.jpg")} style={styles.cardImage} />
+                    <Image source={car.image} style={styles.cardImage} />
                     <View style={{ marginTop: 10 }}>
-                        {/* Title and price container */}
                         <View
                             style={{
                                 flexDirection: 'row',
                                 justifyContent: 'space-between',
                                 marginTop: 10,
                             }}>
-                            <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
-                                Ferrari
+                            <Text style={{ fontSize: 16, fontWeight: 'bold' , color: "white"}}>
+                                Lamborghini Aventador
                             </Text>
                             <Text
-                                style={{ fontWeight: 'bold', color: "blue", fontSize: 16 }}>
-                                $1,500
+                                style={{ fontWeight: 'bold', color: "#c82323", fontSize: 16 }}>
+                                $2.500,000
                             </Text>
                         </View>
 
                         {/* Location text */}
 
                         <Text style={{ color: "gray", fontSize: 14, marginTop: 5 }}>
-                            Brasil
+                            Estados Unidos
                         </Text>
 
                         {/* Facilities container */}
                         <View style={{ marginTop: 10, flexDirection: 'row' }}>
                             <View style={styles.facility}>
-                                <Icon name="hotel" size={18} />
+                                <Icon name="grade" size={18} color={"yellow"} />
+                                <Text style={styles.facilityText}>5</Text>
+                            </View>
+                            <View style={styles.facility}>
+                                <Icon name="group" size={18} color={"gray"}/>
                                 <Text style={styles.facilityText}>2</Text>
                             </View>
                             <View style={styles.facility}>
-                                <Icon name="bathtub" size={18} />
-                                <Text style={styles.facilityText}>2</Text>
-                            </View>
-                            <View style={styles.facility}>
-                                <Icon name="aspect-ratio" size={18} />
-                                <Text style={styles.facilityText}>100m</Text>
+                                <Icon name="payments" size={18} color={"gray"}/>
+                                <Text style={styles.facilityText}>100.000</Text>
                             </View>
                         </View>
                     </View>
@@ -146,8 +145,8 @@ export default function Home({ navigation }) {
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{ paddingLeft: 20, paddingVertical: 20 }}
                 horizontal
-                data={houses}
-                renderItem={({ item }) => <Card house={item} />}
+                data={Cars}
+                renderItem={({ item }) => <Card car={item} />}
             />
         </ScrollView>
     </SafeAreaView>
@@ -219,7 +218,11 @@ const styles = StyleSheet.create({
         height: 170,
         width: width / 2 - 30,
         elevation: 15,
-        backgroundColor: "#1c1c1c"
+        backgroundColor: "#1c1c1c",
+        alignItems: "center",
+        borderRadius: 20,
+        paddingTop: 10,
+        paddingHorizontal: 10
     },
 
     optionsCardImage: {
@@ -231,11 +234,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         paddingBottom: 5,
-        color: "gray",
+        color: "white",
     },
     activeCategoryListText: {
-        color: "white",
-        borderBottomWidth: 1,
+        color: "#c82323",
+        borderBottomColor: "#c82323",
+        borderBottomWidth: 3,
         paddingBottom: 5,
     },
     categoryListContainer: {
@@ -256,7 +260,6 @@ const styles = StyleSheet.create({
     cardImage: {
         width: '100%',
         height: 120,
-        borderRadius: 15,
     },
     facility: { flexDirection: 'row', marginRight: 15 },
     facilityText: { marginLeft: 5, color: "gray" },
