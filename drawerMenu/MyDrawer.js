@@ -7,7 +7,7 @@ import FeedCars from '../screens/FeedCars';
 import Home from '../screens/Home';
 import TelaDrawer1 from '../screens/TelaDrawer1';
 import TelaDrawer2 from '../screens/TelaDrawer2';
-import TelaDrawer3 from '../screens/TelaDrawer3';
+import Configuracoes from '../screens/Configuracoes';
 
 //CRIAÇÃO DO DRAWER NAVIGATOR
 const Drawer = createDrawerNavigator();
@@ -65,8 +65,8 @@ export default function MyDrawer() {
             />
 
             <Drawer.Screen
-                name='TelaDrawer3'
-                component={TelaDrawer3}
+                name='Configuracoes'
+                component={Configuracoes}
                 options={
                     {
                         title: "Tela 3",
