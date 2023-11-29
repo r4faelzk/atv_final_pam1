@@ -8,6 +8,7 @@ import Home from '../screens/Home';
 import TelaDrawer1 from '../screens/TelaDrawer1';
 import TelaDrawer2 from '../screens/TelaDrawer2';
 import Configuracoes from '../screens/Configuracoes';
+import DetailCars from '../screens/DetailCars';
 
 //CRIAÇÃO DO DRAWER NAVIGATOR
 const Drawer = createDrawerNavigator();
@@ -16,6 +17,7 @@ export default function MyDrawer() {
     return (
         <Drawer.Navigator
         initialRouteName='Home'
+        
         >
             <Drawer.Screen
                 name='Home'
@@ -38,6 +40,18 @@ export default function MyDrawer() {
                         headerTitleStyle: { color: 'transparent' },
                         headerShown: false
                        
+                    }
+                }
+            />
+
+            <Drawer.Screen 
+                name='DetailCars'
+                component={DetailCars}
+                options={
+                    {
+                        title: "Categoria de carros",
+                        headerTitleStyle: {color: 'transparent'},
+                        headerShown: false
                     }
                 }
             />
@@ -69,7 +83,7 @@ export default function MyDrawer() {
                 component={Configuracoes}
                 options={
                     {
-                        title: "Tela 3",
+                        title: "Configurações",
                         headerTitleStyle: { color: 'transparent' }
                     }
                 }

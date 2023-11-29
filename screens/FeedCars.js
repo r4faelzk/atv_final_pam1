@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const { width } = Dimensions.get("screen");
 
 
-//ESTRUTURA DE DADOS DE LIVROS
+//ESTRUTURA DE DADOS DE CARROS
 const carros = [
     {
         codigo_produto: 1,
@@ -175,7 +175,9 @@ const carItem = ({ item }) => {
 
                 <Text style={styles.car_data}>{item.valor_produto}</Text>
 
-                <TouchableOpacity style={styles.car_button_details}>
+                <TouchableOpacity style={styles.car_button_details} onPress={()=>{
+                    navigation.navigate("DetailCars")
+                }}>
                     <Text style={styles.car_button_text}>Detalhes</Text>
                 </TouchableOpacity>
 
@@ -186,7 +188,7 @@ const carItem = ({ item }) => {
     )
 }
 
-export default function FeedCars() {
+export default function FeedCars({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
 

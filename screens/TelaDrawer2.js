@@ -13,7 +13,7 @@ export default function TelaDrawer2() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#171717',
     alignItems: 'center',
     justifyContent: 'center',
   },

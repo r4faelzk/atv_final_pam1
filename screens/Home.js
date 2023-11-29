@@ -126,7 +126,7 @@ export default function Home({ navigation }) {
             <View style={styles.search}>
                 <View style={styles.inputContainer}>
                     <Ionicons name="search" size={25} color={"gray"} />
-                    <TextInput placeholder="Pesquise por carros" style={{ paddingLeft: 20 }} placeholderTextColor={"gray"}></TextInput>
+                    <TextInput placeholder="Pesquise por carros" style={{ paddingLeft: 20 , color: "white"}} placeholderTextColor={"gray"}></TextInput>
                 </View>
             </View>
 
@@ -194,7 +194,8 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         justifyContent: "space-between",
         flexDirection: "row",
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        
     },
 
     inputContainer: {
@@ -204,7 +205,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         paddingHorizontal: 20,
-        borderRadius: 10
+        borderRadius: 10,
     },
 
     optionListContainer: {
