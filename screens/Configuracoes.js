@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Configuracoes() {
   return (
     <View style={styles.container}>
-      <Text>Tela 3</Text>
+      <Text style={{color: "white"}}>Configurações</Text>
       <StatusBar style="auto" />
     </View>
   );

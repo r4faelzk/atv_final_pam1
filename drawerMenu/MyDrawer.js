@@ -5,10 +5,9 @@ import {
 //IMPORTACAO DAS TELAS NAVEGAVEIS DO DRAWERMENU
 import FeedCars from '../screens/FeedCars';
 import Home from '../screens/Home';
-import TelaDrawer1 from '../screens/TelaDrawer1';
-import TelaDrawer2 from '../screens/TelaDrawer2';
 import Configuracoes from '../screens/Configuracoes';
 import DetailCars from '../screens/DetailCars';
+import CustomDrawer from '../consts/CustomDrawer';
 
 //CRIAÇÃO DO DRAWER NAVIGATOR
 const Drawer = createDrawerNavigator();
@@ -17,6 +16,15 @@ export default function MyDrawer() {
     return (
         <Drawer.Navigator
         initialRouteName='Home'
+        drawerContent={props => <CustomDrawer {...props}/>}
+        screenOptions={{
+            drawerActiveBackgroundColor: "#c82323",
+            drawerLabelStyle:{
+                color: "#fff",
+                fontSize: 15
+            }
+
+        }}
         
         >
             <Drawer.Screen
@@ -27,6 +35,7 @@ export default function MyDrawer() {
                         title: "Página inicial",
                         headerTitleStyle: {color: "transparent"},
                         headerShown: false
+                        
                     }
                 }
             />
@@ -39,7 +48,7 @@ export default function MyDrawer() {
                         title: "Carros à venda",
                         headerTitleStyle: { color: 'transparent' },
                         headerShown: false
-                       
+                        
                     }
                 }
             />
@@ -52,28 +61,7 @@ export default function MyDrawer() {
                         title: "Categoria de carros",
                         headerTitleStyle: {color: 'transparent'},
                         headerShown: false
-                    }
-                }
-            />
-
-            <Drawer.Screen
-                name='TelaDrawer1'
-                component={TelaDrawer1}
-                options={
-                    {
-                        title: "Tela 1",
-                        headerTitleStyle: { color: 'transparent' }
-                    }
-                }
-            />
-
-            <Drawer.Screen
-                name='TelaDrawer2'
-                component={TelaDrawer2}
-                options={
-                    {
-                        title: "Tela 2",
-                        headerTitleStyle: { color: 'transparent' }
+                        
                     }
                 }
             />
@@ -84,7 +72,12 @@ export default function MyDrawer() {
                 options={
                     {
                         title: "Configurações",
-                        headerTitleStyle: { color: 'transparent' }
+                        headerTitleStyle: { color: 'transparent' },
+                        headerStyle:{
+                            backgroundColor: "#171717"
+                        }
+                        
+                       
                     }
                 }
             />

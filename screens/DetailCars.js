@@ -21,6 +21,18 @@ const categoriaCarros = [
     observacoes_categoria: 'Carros esportivos com tecnologia híbrida ou elétrica',
     imagem_categoria: require('../assets/imagens/carros/tesla_roadster.jpg'),
   },
+  {
+    codigo_categoria: 4,
+    nome_categoria: 'SUVs',
+    observacoes_categoria: 'Carros utilitários esportivos para famílias',
+    imagem_categoria: require('../assets/imagens/carros/porsche_cayenne.jpg'),
+  },
+  {
+    codigo_categoria: 5,
+    nome_categoria: 'Conversíveis',
+    observacoes_categoria: 'Carros com teto conversível para uma experiência ao ar livre',
+    imagem_categoria: require('../assets/imagens/carros/mazda-mx5.jpg'),
+  },
 
 
 ];
