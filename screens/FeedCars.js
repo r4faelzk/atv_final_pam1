@@ -202,7 +202,7 @@ export default function FeedCars({navigation}) {
             <FlatList
                 data={carros}
                 renderItem={carItem}
-                ListEmptyComponent={<Text>A LISTA DE LIVROS ESTÁ VAZIA</Text>}
+                ListEmptyComponent={<Text>A LISTA DE CARROS ESTÁ VAZIA</Text>}
                 keyExtractor={carros => carros.codigo_produto}
 
             />

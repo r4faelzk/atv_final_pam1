@@ -5,17 +5,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Cars from "../consts/Cars";
 const { width } = Dimensions.get("screen");
 
-
-
-
-
 export default function Home({ navigation }) {
     const optionList = [
         { title: "Comprar um carro", img: require("../assets/imagens/Carro1.jpg") },
         { title: "Alugar um carro", img: require("../assets/imagens/carro2.jpg") },
     ];
-
-    
 
     const ListCategories = () => {
         const categoryList = ['Populares', 'Esportivos', 'Clássicos'];
@@ -45,7 +39,6 @@ export default function Home({ navigation }) {
                 <View style={styles.optionCard}>
                     <Image source={option.img} style={styles.optionsCardImage} />
 
-                    {/* Option title */}
                     <Text style={{ marginTop: 10, fontSize: 15, fontWeight: '600', color: "white", textAlign: "center" }}>
                         {option.title}</Text>
                 </View>
@@ -59,7 +52,6 @@ export default function Home({ navigation }) {
                 activeOpacity={0.8}
                 onPress={() => navigation.navigate('DetailBook', car)}>
                 <View style={styles.card}>
-                    {/* House image */}
                     <Image source={car.image} style={styles.cardImage} />
                     <View style={{ marginTop: 10 }}>
                         <View
@@ -77,13 +69,10 @@ export default function Home({ navigation }) {
                             </Text>
                         </View>
 
-                        {/* Location text */}
-
                         <Text style={{ color: "gray", fontSize: 14, marginTop: 5 }}>
                             Estados Unidos
                         </Text>
 
-                        {/* Facilities container */}
                         <View style={{ marginTop: 10, flexDirection: 'row' }}>
                             <View style={styles.facility}>
                                 <Icon name="grade" size={18} color={"yellow"} />
@@ -112,7 +101,6 @@ export default function Home({ navigation }) {
             barStyle={"dark-content"}
         />
 
-
         <View style={styles.header}>
             <View>
                 <Text style={{ color: "gray" }}>Localização</Text>
@@ -120,7 +108,6 @@ export default function Home({ navigation }) {
             </View>
             <Image source={require("../assets/imagens/Perfil.jpg")} style={styles.perfil} />
         </View>
-
 
         <ScrollView>
             <View style={styles.search}>
@@ -264,8 +251,4 @@ const styles = StyleSheet.create({
     },
     facility: { flexDirection: 'row', marginRight: 15 },
     facilityText: { marginLeft: 5, color: "gray" },
-
-
-
-
 })
