@@ -1,6 +1,4 @@
-import {
-    createDrawerNavigator,
-} from '@react-navigation/drawer'
+import {createDrawerNavigator} from '@react-navigation/drawer'
 
 //IMPORTACAO DAS TELAS NAVEGAVEIS DO DRAWERMENU
 import FeedCars from '../screens/FeedCars';
@@ -15,17 +13,16 @@ const Drawer = createDrawerNavigator();
 export default function MyDrawer() {
     return (
         <Drawer.Navigator
-        initialRouteName='Home'
-        drawerContent={props => <CustomDrawer {...props}/>}
-        screenOptions={{
-            drawerActiveBackgroundColor: "#c82323",
-            drawerLabelStyle:{
-                color: "#fff",
-                fontSize: 15
-            }
+            initialRouteName='Home'
+            drawerContent={props => <CustomDrawer {...props} />}
+            screenOptions={{
+                drawerActiveBackgroundColor: "#c82323",
+                drawerLabelStyle: {
+                    color: "#fff",
+                    fontSize: 15
+                }
+            }}
 
-        }}
-        
         >
             <Drawer.Screen
                 name='Home'
@@ -33,9 +30,8 @@ export default function MyDrawer() {
                 options={
                     {
                         title: "Página inicial",
-                        headerTitleStyle: {color: "transparent"},
+                        headerTitleStyle: { color: "transparent" },
                         headerShown: false
-                        
                     }
                 }
             />
@@ -48,20 +44,18 @@ export default function MyDrawer() {
                         title: "Carros à venda",
                         headerTitleStyle: { color: 'transparent' },
                         headerShown: false
-                        
                     }
                 }
             />
 
-            <Drawer.Screen 
+            <Drawer.Screen
                 name='DetailCars'
                 component={DetailCars}
                 options={
                     {
                         title: "Categoria de carros",
-                        headerTitleStyle: {color: 'transparent'},
+                        headerTitleStyle: { color: 'transparent' },
                         headerShown: false
-                        
                     }
                 }
             />
@@ -73,11 +67,9 @@ export default function MyDrawer() {
                     {
                         title: "Configurações",
                         headerTitleStyle: { color: 'transparent' },
-                        headerStyle:{
+                        headerStyle: {
                             backgroundColor: "#171717"
                         }
-                        
-                       
                     }
                 }
             />
