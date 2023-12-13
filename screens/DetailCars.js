@@ -2,6 +2,7 @@ import { Image, FlatList, TextInput, SafeAreaView, Dimensions, TouchableOpacity,
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const { width } = Dimensions.get("screen");
 
+// DADOS DE EXEMPLO PARA CATEGORIAS DE CARROS
 const categoriaCarros = [
   {
     codigo_categoria: 1,
@@ -37,6 +38,7 @@ const categoriaCarros = [
 
 ];
 
+// COMPONENTE PARA RENDERIZAR CADA ITEM DE CATEGORIA
 const categoriaItem = ({ item }) => {
   return (
     <View style={styles.categoriaContainer}>
@@ -63,99 +65,103 @@ const categoriaItem = ({ item }) => {
   )
 }
 
-export default function DetailCars({navigation}) {
+// COMPONENTE PRINCIPAL
+export default function DetailCars({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
 
-        <View style={styles.search}>
-            <View style={styles.inputContainer}>
-                <Ionicons name="search" size={25} color={"gray"} />
-                <TextInput placeholder="Pesquise por carros" style={{ paddingLeft: 20 }} placeholderTextColor={"gray"}></TextInput>
-            </View>
+      {/* BARRA DE PESQUISA */}
+      <View style={styles.search}>
+
+        <View style={styles.inputContainer}>
+          <Ionicons name="search" size={25} color={"gray"} />
+          <TextInput placeholder="Pesquise por carros" style={{ paddingLeft: 20 }} placeholderTextColor={"gray"}></TextInput>
         </View>
 
-        <FlatList
-            data={categoriaCarros}
-            renderItem={categoriaItem}
-            ListEmptyComponent={<Text>A LISTA DE CARROS ESTÁ VAZIA</Text>}
-            keyExtractor={categoriaCarros => categoriaCarros.codigo_categoria}
-
-        />
+      </View>
+      
+      {/* LISTA DE CATEGORIAS DE CARROS */}
+      <FlatList
+        data={categoriaCarros}
+        renderItem={categoriaItem}
+        ListEmptyComponent={<Text>A LISTA DE CARROS ESTÁ VAZIA</Text>}
+        keyExtractor={categoriaCarros => categoriaCarros.codigo_categoria}
+      />
 
     </SafeAreaView>
-);
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      backgroundColor: '#171717',
-      alignItems: 'center',
-      justifyContent: 'center',
+    flex: 1,
+    backgroundColor: '#171717',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   search: {
-      paddingVertical: 15,
-      justifyContent: "space-between",
-      flexDirection: "row",
-      paddingHorizontal: 20
+    paddingVertical: 15,
+    justifyContent: "space-between",
+    flexDirection: "row",
+    paddingHorizontal: 20
   },
 
   inputContainer: {
-      height: 50,
-      backgroundColor: "black",
-      flex: 1,
-      flexDirection: "row",
-      alignItems: "center",
-      paddingHorizontal: 20,
-      borderRadius: 10
+    height: 50,
+    backgroundColor: "black",
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    borderRadius: 10
   },
 
   categoriaContainer: {
-      flex: 1,
-      flexDirection: 'collum',
-      padding: 10,
-      borderWidth: 1,
-      borderRadius: 10,
-      borderColor: '#1c1c1c',
-      marginBottom: 10,
-      backgroundColor: '#2c2c2c',
+    flex: 1,
+    flexDirection: 'collum',
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: '#1c1c1c',
+    marginBottom: 10,
+    backgroundColor: '#2c2c2c',
   },
   imageContainer: {
-      width: "100%",
-      height: 220,
-      marginRight: 10,
-      marginBottom: 10,
+    width: "100%",
+    height: 220,
+    marginRight: 10,
+    marginBottom: 10,
   },
   categoria_text: {
-      width: width - 50,
-      justifyContent: 'center',
+    width: width - 50,
+    justifyContent: 'center',
   },
   categoria_data: {
-      fontSize: 16,
-      fontWeight: '600',
-      width: '100%',
-      textAlign: 'left',
-      color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+    width: '100%',
+    textAlign: 'left',
+    color: 'white',
   },
   categoria_descricao: {
-      fontSize: 14,
-      fontWeight: '400',
-      width: '100%',
-      textAlign: 'left',
-      color: '#CCC',
-      marginBottom: 10,
+    fontSize: 14,
+    fontWeight: '400',
+    width: '100%',
+    textAlign: 'left',
+    color: '#CCC',
+    marginBottom: 10,
   },
   car_button_details: {
-      alignItems: 'center',
-      backgroundColor: '#c82323',
-      padding: 10,
-      borderRadius: 5,
-      marginTop: 20,
-      width: '100%',
+    alignItems: 'center',
+    backgroundColor: '#c82323',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+    width: '100%',
   },
   car_button_text: {
-      color: '#FFF',
-      fontSize: 16,
-      fontWeight: 'bold',
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });

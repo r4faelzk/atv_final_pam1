@@ -5,15 +5,20 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Cars from "../consts/Cars";
 const { width } = Dimensions.get("screen");
 
+// COMPONENTE DE PÁGINA INICIAL
 export default function Home({ navigation }) {
+
+    // OPÇÕES NA PÁGINA INICIAL
     const optionList = [
         { title: "Comprar um carro", img: require("../assets/imagens/Carro1.jpg") },
         { title: "Alugar um carro", img: require("../assets/imagens/carro2.jpg") },
     ];
 
+    // COMPONENTE PARA LISTAR CATEGORIAS
     const ListCategories = () => {
         const categoryList = ['Populares', 'Esportivos', 'Clássicos'];
         const [selectedCategoryIndex, setSelectedCategoryIndex] = React.useState(0);
+
         return (
             <View style={styles.categoryListContainer}>
                 {categoryList.map((category, index) => (
@@ -21,9 +26,9 @@ export default function Home({ navigation }) {
                         key={index}
                         onPress={() => setSelectedCategoryIndex(index)}>
                         <Text style={[
-                                styles.categoryListText,
-                                index == selectedCategoryIndex && styles.activeCategoryListText,
-                            ]}>
+                            styles.categoryListText,
+                            index == selectedCategoryIndex && styles.activeCategoryListText,
+                        ]}>
                             {category}
                         </Text>
                     </Pressable>
@@ -32,13 +37,12 @@ export default function Home({ navigation }) {
         );
     };
 
-
+    // COMPONENTE PARA LISTAR OPÇÕES
     const ListOptions = () => {
         return <View style={styles.optionListContainer}>
             {optionList.map((option, index) => (
                 <View style={styles.optionCard}>
                     <Image source={option.img} style={styles.optionsCardImage} />
-
                     <Text style={{ marginTop: 10, fontSize: 15, fontWeight: '600', color: "white", textAlign: "center" }}>
                         {option.title}</Text>
                 </View>
@@ -46,11 +50,12 @@ export default function Home({ navigation }) {
         </View>
     };
 
+    // COMPONENTE PARA EXIBIR UM CARRO NA LISTA
     const Card = ({ car }) => {
         return (
             <Pressable
                 activeOpacity={0.8}
-                onPress={() => navigation.navigate('DetailBook', car)}>
+                onPress={() => navigation.navigate('FeedCars', car)}>
                 <View style={styles.card}>
                     <Image source={car.image} style={styles.cardImage} />
                     <View style={{ marginTop: 10 }}>
@@ -93,7 +98,6 @@ export default function Home({ navigation }) {
         );
     };
 
-
     return <SafeAreaView style={styles.container}>
         <StatusBar
             translucent={false}
@@ -101,6 +105,7 @@ export default function Home({ navigation }) {
             barStyle={"dark-content"}
         />
 
+        {/* CABEÇALHO */}
         <View style={styles.header}>
             <View>
                 <Text style={{ color: "gray" }}>Localização</Text>
@@ -109,6 +114,7 @@ export default function Home({ navigation }) {
             <Image source={require("../assets/imagens/Perfil.jpg")} style={styles.perfil} />
         </View>
 
+        {/* BARRA DE PESQUISA */}
         <ScrollView>
             <View style={styles.search}>
                 <View style={styles.inputContainer}>
@@ -117,16 +123,19 @@ export default function Home({ navigation }) {
                 </View>
             </View>
 
+            {/* CONTEÚDO DA PÁGINA */}
             <View style={styles.content}>
                 <Text style={styles.title}>Bem-vindo à <Text style={{ color: "#c82323" }}>FastCar!</Text></Text>
                 <Text style={styles.text}>Descubra, compre ou alugue seu carro dos sonhos com facilidade. Aqui, a paixão por automóveis se encontra com a conveniência moderna, proporcionando a você uma experiência única.</Text>
             </View>
 
+            {/* LISTA DE OPÇÕES */}
             <ListOptions />
 
+            {/* LISTA DE CATEGORIAS */}
             <ListCategories />
 
-
+            {/* LISTA DE CARROS */}
             <FlatList
                 snapToInterval={width - 20}
                 showsHorizontalScrollIndicator={false}
@@ -139,31 +148,36 @@ export default function Home({ navigation }) {
     </SafeAreaView>
 }
 
+// ESTILOS
 const styles = StyleSheet.create({
+    // CONTÊINER PRINCIPAL
     container: {
         flex: 1,
         backgroundColor: "#171717",
-
     },
 
+    // CONTEÚDO
     content: {
         flex: 1,
         paddingHorizontal: 20,
         paddingVertical: 5
     },
 
+    // TÍTULO
     title: {
         color: "white",
         fontSize: 20,
         fontWeight: "bold"
     },
 
+    // TEXTO
     text: {
         color: "#f8f8ff",
         fontSize: 12,
         fontWeight: "300"
     },
 
+    // CABEÇALHO
     header: {
         paddingVertical: 20,
         flexDirection: "row",
@@ -171,20 +185,22 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20
     },
 
+    // IMAGEM DE PERFIL
     perfil: {
         height: 50,
         width: 50,
         borderRadius: 25,
     },
 
+    // BARRA DE PESQUISA
     search: {
         paddingVertical: 15,
         justifyContent: "space-between",
         flexDirection: "row",
         paddingHorizontal: 20,
-        
     },
 
+    // CONTAINER DE INPUT
     inputContainer: {
         height: 50,
         backgroundColor: "black",
@@ -195,6 +211,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
 
+    // CONTAINER DE OPÇÕES
     optionListContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
@@ -202,6 +219,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20
     },
 
+    // CARTÃO DE OPÇÃO
     optionCard: {
         height: 170,
         width: width / 2 - 30,
@@ -213,29 +231,37 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
 
+    // IMAGEM NO CARTÃO DE OPÇÃO
     optionsCardImage: {
         height: 110,
         width: '100%',
     },
 
+    // TEXTO NA LISTA DE CATEGORIAS
     categoryListText: {
         fontSize: 16,
         fontWeight: 'bold',
         paddingBottom: 5,
         color: "white",
     },
+
+    // TEXTO NA LISTA DE CATEGORIAS - ATIVO
     activeCategoryListText: {
         color: "#c82323",
         borderBottomColor: "#c82323",
         borderBottomWidth: 3,
         paddingBottom: 5,
     },
+
+    // CONTAINER DA LISTA DE CATEGORIAS
     categoryListContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 40,
         paddingHorizontal: 40,
     },
+
+    // CARTÃO DE CARRO
     card: {
         height: 250,
         backgroundColor: "#171717",
@@ -245,10 +271,14 @@ const styles = StyleSheet.create({
         padding: 15,
         borderRadius: 20,
     },
+
+    // IMAGEM NO CARTÃO DE CARRO
     cardImage: {
         width: '100%',
         height: 120,
     },
+
+    // FACILIDADES (GRADE, GRUPO, PAGAMENTOS) NO CARTÃO DE CARRO
     facility: { flexDirection: 'row', marginRight: 15 },
     facilityText: { marginLeft: 5, color: "gray" },
-})
+});

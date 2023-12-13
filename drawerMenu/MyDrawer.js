@@ -1,17 +1,18 @@
-import {createDrawerNavigator} from '@react-navigation/drawer'
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-//IMPORTACAO DAS TELAS NAVEGAVEIS DO DRAWERMENU
+// IMPORTAÇÃO DAS TELAS NAVEGÁVEIS DO DRAWERMENU
 import FeedCars from '../screens/FeedCars';
 import Home from '../screens/Home';
 import Configuracoes from '../screens/Configuracoes';
 import DetailCars from '../screens/DetailCars';
 import CustomDrawer from '../consts/CustomDrawer';
 
-//CRIAÇÃO DO DRAWER NAVIGATOR
+// CRIAÇÃO DO DRAWER NAVIGATOR
 const Drawer = createDrawerNavigator();
 
 export default function MyDrawer() {
     return (
+        // NAVEGADOR DE DRAWER COM OPÇÕES INICIAIS E ESTILOS
         <Drawer.Navigator
             initialRouteName='Home'
             drawerContent={props => <CustomDrawer {...props} />}
@@ -22,8 +23,8 @@ export default function MyDrawer() {
                     fontSize: 15
                 }
             }}
-
         >
+            {/* TELA PRINCIPAL - HOME */}
             <Drawer.Screen
                 name='Home'
                 component={Home}
@@ -36,6 +37,7 @@ export default function MyDrawer() {
                 }
             />
 
+            {/* TELA DE PRODUTOS*/}
             <Drawer.Screen
                 name='FeedCars'
                 component={FeedCars}
@@ -48,6 +50,7 @@ export default function MyDrawer() {
                 }
             />
 
+            {/* TELA DE CATEGORIA DE CARROS */}
             <Drawer.Screen
                 name='DetailCars'
                 component={DetailCars}
@@ -60,6 +63,7 @@ export default function MyDrawer() {
                 }
             />
 
+            {/* TELA DE CONFIGURAÇÕES */}
             <Drawer.Screen
                 name='Configuracoes'
                 component={Configuracoes}
@@ -73,7 +77,6 @@ export default function MyDrawer() {
                     }
                 }
             />
-
         </Drawer.Navigator>
     );
 }

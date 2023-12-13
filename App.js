@@ -6,7 +6,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./screens/Login";
 import CreateUser from "./screens/CreateUser";
 import DrawerMenu from "./drawerMenu/DrawerMenu";
-import Route from "./src/tabMenu/Route";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,17 +25,9 @@ export default function App() {
         />
         <Stack.Screen
           name="DrawerMenu"
-          component={DrawerMenu} // TELA DE CREATEUSER EM SI
+          component={DrawerMenu} 
           options={{ title: "", headerShown: false }}
         />
-
-        <Stack.Screen
-          name="Route"
-          component={Route} 
-          options={{ title: "" }}
-        />
-
-
       </Stack.Navigator>
     </NavigationContainer>
   );
